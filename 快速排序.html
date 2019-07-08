@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function quickSort(arr) {
+        if (arr.length <= 1) {
+            return arr;
+        };
+        // 标杆
+        const pivot = arr[0];
+        // 比标杆大的
+        var bigger = [];
+        // 比标杆小的
+        var smaller = [];
+        // 遍历，分门别类放数据
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] > pivot) {
+                bigger.push(arr[i]);
+            } else {
+                smaller.push(arr[i]);
+            }
+        }
+        return quickSort(smaller).concat(pivot, quickSort(bigger));
+    }
+    var arr = [40, 77, 22, 88, 66, 55, 44, 11, 33];
+    console.log(quickSort(arr));
+</script>
+
+</html>
